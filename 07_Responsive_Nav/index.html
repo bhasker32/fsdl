@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body {margin:0; font-family:sans-serif;}
+  .nav {background:#333; color:white; display:flex; padding:0; margin:0; list-style:none;}
+  .nav li {position:relative; padding:15px 20px; cursor:pointer;}
+  .nav li:hover {background:#555;}
+  .dropdown {display:none; position:absolute; top:100%; left:0; background:#444; width:150px; flex-direction:column; padding:0; margin:0; box-shadow:0 4px 8px rgba(0,0,0,0.2);}
+  .dropdown div {padding:15px; border-bottom:1px solid #555;}
+  .dropdown div:hover {background:#666;}
+  .nav li:hover .dropdown {display:flex;}
+</style></head>
+<body>
+  <ul class="nav">
+    <li>Home</li>
+    <li>Products ▼
+      <div class="dropdown">
+        <div>Electronics</div>
+        <div>Clothing</div>
+        <div>Books</div>
+      </div>
+    </li>
+    <li>About</li>
+    <li>Contact</li>
+  </ul>
+  <div style="padding:20px;"><h2>Welcome</h2><p>Hover over "Products" to see the dropdown menu.</p></div>
+</body></html>

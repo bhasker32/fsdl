@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body {transition: background 0.3s, color 0.3s; padding:20px; font-family:sans-serif; text-align:center; margin:0; height:100vh; display:flex; flex-direction:column; justify-content:center;}
+  body.dark {background: #222; color: #fff;}
+  body.light {background: #fff; color: #000;}
+  button {padding:10px 20px; font-size:16px; cursor:pointer;}
+</style></head>
+<body class="light">
+  <h2>Theme Switcher</h2>
+  <p>Your preference is saved locally.</p>
+  <div><button onclick="toggle()">Toggle Theme</button></div>
+  <script>
+    if(localStorage.getItem('theme') === 'dark') document.body.className = 'dark';
+    function toggle() {
+      let isDark = document.body.className === 'dark';
+      document.body.className = isDark ? 'light' : 'dark';
+      localStorage.setItem('theme', document.body.className);
+    }
+  </script>
+</body></html>

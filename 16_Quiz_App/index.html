@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif; max-width:500px; padding:20px;}
+  .question{margin-bottom:20px; padding:15px; background:#f9f9f9; border-left:4px solid #007bff;}
+  button{padding:10px 20px; background:#28a745; color:white; border:none; cursor:pointer; font-size:16px;}
+  #res{margin-top:20px; color:#dc3545;}
+</style></head>
+<body>
+  <h2>Quick Quiz</h2>
+  <div class="question">
+    <p><b>1. What does HTML stand for?</b></p>
+    <label><input type="radio" name="q1" value="Hyper"> HyperText Markup Language</label><br>
+    <label><input type="radio" name="q1" value="Home"> Home Tool Markup Language</label>
+  </div>
+  <div class="question">
+    <p><b>2. Inside which HTML element do we put the JavaScript?</b></p>
+    <label><input type="radio" name="q2" value="js"> &lt;js&gt;</label><br>
+    <label><input type="radio" name="q2" value="script"> &lt;script&gt;</label>
+  </div>
+  <button onclick="score()">Submit Quiz</button>
+  <h2 id="res"></h2>
+  <script>
+    function score() {
+      let s = 0;
+      let a1 = document.querySelector('input[name="q1"]:checked');
+      let a2 = document.querySelector('input[name="q2"]:checked');
+      if(a1 && a1.value === 'Hyper') s++;
+      if(a2 && a2.value === 'script') s++;
+      document.getElementById('res').innerText = "Your Score: " + s + " out of 2";
+    }
+  </script>
+</body></html>

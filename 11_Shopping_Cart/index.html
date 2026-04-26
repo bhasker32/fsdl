@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif;} .item{display:flex; justify-content:space-between; width:300px; padding:10px; border-bottom:1px solid #ccc;}
+  button{cursor:pointer; width:30px; height:30px; font-weight:bold;}
+</style></head>
+<body>
+  <h2>Shopping Cart</h2>
+  <div class="item">
+    <span>Laptop ($1000)</span> 
+    <div><button onclick="chg('qty1', 1000, -1)">-</button> <span id="qty1" style="margin:0 10px;">0</span> <button onclick="chg('qty1', 1000, 1)">+</button></div>
+  </div>
+  <div class="item">
+    <span>Mouse ($50)</span> 
+    <div><button onclick="chg('qty2', 50, -1)">-</button> <span id="qty2" style="margin:0 10px;">0</span> <button onclick="chg('qty2', 50, 1)">+</button></div>
+  </div>
+  <h3 style="width:300px; text-align:right;">Total: $<span id="tot">0</span></h3>
+  <script>
+    let cart = {qty1:{q:0,p:1000}, qty2:{q:0,p:50}};
+    function chg(id, p, v) {
+      cart[id].q = Math.max(0, cart[id].q + v);
+      document.getElementById(id).innerText = cart[id].q;
+      let total = Object.values(cart).reduce((sum, item) => sum + item.q * item.p, 0);
+      document.getElementById("tot").innerText = total;
+    }
+  </script>
+</body></html>

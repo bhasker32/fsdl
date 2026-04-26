@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif; text-align:center; padding-top:50px;}
+  h1{font-size:4em; font-family:monospace; margin-bottom:20px;}
+  button{padding:10px 20px; font-size:16px; margin:5px; cursor:pointer; border:none; border-radius:5px; color:white;}
+  .start{background:#28a745;} .stop{background:#dc3545;} .reset{background:#6c757d;}
+</style></head>
+<body>
+  <h2>Stopwatch</h2>
+  <h1 id="time">00:00:00</h1>
+  <button class="start" onclick="start()">Start</button>
+  <button class="stop" onclick="stop()">Stop</button>
+  <button class="reset" onclick="reset()">Reset</button>
+  <script>
+    let ms=0, s=0, m=0, int=null;
+    function format(n){ return n < 10 ? "0"+n : n; }
+    function updateDisplay(){ document.getElementById('time').innerText = format(m)+":"+format(s)+":"+format(ms); }
+    function start() { 
+      if(!int) int = setInterval(() => { 
+        ms++; if(ms===100){ms=0; s++;} if(s===60){s=0; m++;} updateDisplay();
+      }, 10); 
+    }
+    function stop() { clearInterval(int); int = null; }
+    function reset() { stop(); ms=s=m=0; updateDisplay(); }
+  </script>
+</body></html>

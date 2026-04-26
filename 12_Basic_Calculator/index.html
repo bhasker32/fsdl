@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif; text-align:center; padding:50px;}
+  .calc-container { width: 280px; margin: auto; border: 1px solid #ccc; padding: 15px; border-radius: 8px; background: #f9f9f9; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+  #display { width: 100%; font-size: 1.8em; padding: 10px; margin-bottom: 15px; box-sizing: border-box; text-align: right; border: 1px solid #ddd; border-radius: 4px; background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  button { font-size: 1.2em; padding: 15px 0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; background: #fff; transition: background 0.2s; }
+  button:hover { background: #eee; }
+  button.op { background: #ffc107; font-weight: bold; }
+  button.op:hover { background: #e0a800; }
+  button.eq { background: #28a745; color: white; font-weight: bold; }
+  button.eq:hover { background: #218838; }
+  button.clear { background: #dc3545; color: white; grid-column: span 4; font-weight: bold; }
+  button.clear:hover { background: #c82333; }
+</style></head>
+<body>
+  <h2>Calculator</h2>
+  <div class="calc-container">
+    <input type="text" id="display" disabled>
+    <div class="grid">
+      <button onclick="append('7')">7</button>
+      <button onclick="append('8')">8</button>
+      <button onclick="append('9')">9</button>
+      <button class="op" onclick="append('/')">&divide;</button>
+      
+      <button onclick="append('4')">4</button>
+      <button onclick="append('5')">5</button>
+      <button onclick="append('6')">6</button>
+      <button class="op" onclick="append('*')">&times;</button>
+      
+      <button onclick="append('1')">1</button>
+      <button onclick="append('2')">2</button>
+      <button onclick="append('3')">3</button>
+      <button class="op" onclick="append('-')">-</button>
+      
+      <button onclick="append('0')">0</button>
+      <button onclick="append('.')">.</button>
+      <button class="op" onclick="append('+')">+</button>
+      <button class="eq" onclick="calc()">=</button>
+      
+      <button class="clear" onclick="clearDisplay()">Clear</button>
+    </div>
+  </div>
+  <script>
+    function append(val) {
+      document.getElementById('display').value += val;
+    }
+    function clearDisplay() {
+      document.getElementById('display').value = '';
+    }
+    function calc() {
+      try {
+        let display = document.getElementById('display');
+        let res = eval(display.value);
+        if(res !== undefined) display.value = res;
+      } catch (e) {
+        alert("Invalid Expression");
+        clearDisplay();
+      }
+    }
+  </script>
+</body></html>

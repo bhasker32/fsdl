@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{text-align:center; font-family:sans-serif;}
+  .gallery {display:flex; gap:15px; flex-wrap:wrap; justify-content:center; padding:20px;}
+  .img-container {position:relative; overflow:hidden; border-radius:8px;}
+  img {width: 200px; height: 150px; object-fit:cover; transition: transform 0.3s; display:block;}
+  .img-container:hover img {transform: scale(1.1);}
+  .overlay {position:absolute; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.5); color:#fff; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.3s; pointer-events:none;}
+  .img-container:hover .overlay {opacity:1;}
+</style></head>
+<body>
+  <h2>Hover Photo Gallery</h2>
+  <div class="gallery">
+    <div class="img-container"><img src="images/img1.jpg" alt="Local Image 1"><div class="overlay">Image 1</div></div>
+    <div class="img-container"><img src="images/img2.jpg" alt="Local Image 2"><div class="overlay">Image 2</div></div>
+    <div class="img-container"><img src="images/img3.jpg" alt="Local Image 3"><div class="overlay">Image 3</div></div>
+    <div class="img-container"><img src="images/img4.jpg" alt="Local Image 4"><div class="overlay">Image 4</div></div>
+    <div class="img-container"><img src="images/img5.jpg" alt="Local Image 5"><div class="overlay">Image 5</div></div>
+    <div class="img-container"><img src="images/img6.jpg" alt="Local Image 6"><div class="overlay">Image 6</div></div>
+  </div>
+</body></html>

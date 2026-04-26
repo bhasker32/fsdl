@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><style>body{text-align:center; font-family:sans-serif;} .toggle-btn{padding:10px 20px; cursor:pointer;} .card{border:1px solid #ccc; padding:20px; width:200px; margin:20px auto; border-radius:8px;} .price{font-size:2em; font-weight:bold; color:#007bff;}</style></head>
+<body>
+  <h2>Pricing Plan</h2>
+  <div>
+    <button class="toggle-btn" onclick="setPlan('monthly')">Monthly</button>
+    <button class="toggle-btn" onclick="setPlan('yearly')">Yearly</button>
+  </div>
+  <div class="card">
+    <h3>Pro Plan</h3>
+    <p class="price" id="price">$19 <small>/ mo</small></p>
+    <p>Unlimited access</p>
+  </div>
+  <script>
+    function setPlan(plan) {
+      document.getElementById("price").innerHTML = plan === 'yearly' ? '$190 <small>/ yr</small>' : '$19 <small>/ mo</small>';
+    }
+  </script>
+</body></html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif; max-width:400px; padding:20px;}
+  input{width:100%; padding:10px; font-size:16px; margin-bottom:20px; box-sizing:border-box;}
+  .result-box{background:#f4f4f4; padding:15px; border-radius:5px; margin-bottom:10px;}
+</style></head>
+<body>
+  <h2>String Operations</h2>
+  <input type="text" id="str" oninput="process()" placeholder="Type something here...">
+  <div class="result-box">
+    <p><b>Reverse:</b> <span id="rev"></span></p>
+    <p><b>Uppercase:</b> <span id="up"></span></p>
+    <p><b>Lowercase:</b> <span id="low"></span></p>
+    <p><b>Length:</b> <span id="len" style="color:red;">0</span> chars</p>
+  </div>
+  <script>
+    function process() {
+      let s = document.getElementById('str').value;
+      document.getElementById('rev').innerText = s.split('').reverse().join('');
+      document.getElementById('up').innerText = s.toUpperCase();
+      document.getElementById('low').innerText = s.toLowerCase();
+      document.getElementById('len').innerText = s.length;
+    }
+  </script>
+</body></html>

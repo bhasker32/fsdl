@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif;} .container{max-width:300px; margin:20px auto;} 
+  input{width:70%; padding:8px;} button{padding:8px; cursor:pointer;}
+  ul{list-style:none; padding:0;}
+  li{background:#eee; margin-top:10px; padding:10px; display:flex; justify-content:space-between; align-items:center;}
+  .del-btn{background:red; color:white; border:none; border-radius:3px; padding:5px 10px;}
+</style></head>
+<body>
+  <div class="container">
+    <h2>To-Do List</h2>
+    <input type="text" id="task" placeholder="Enter new task">
+    <button onclick="add()">Add</button>
+    <ul id="list"></ul>
+  </div>
+  <script>
+    function add() {
+      let input = document.getElementById('task');
+      if(!input.value.trim()) return;
+      let li = document.createElement('li');
+      li.innerHTML = '<span>'+input.value+'</span> <button class="del-btn" onclick="this.parentNode.remove()">X</button>';
+      document.getElementById('list').appendChild(li);
+      input.value = "";
+    }
+  </script>
+</body></html>

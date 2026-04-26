@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><style>.gallery{display:flex; gap:15px; font-family:sans-serif;} .card{border:1px solid #ddd; padding:15px; border-radius:8px; text-align:center;} button{background:#007bff; color:#fff; border:none; padding:8px 15px; cursor:pointer; border-radius:4px;}</style></head>
+<body>
+  <h2>Product Gallery</h2>
+  <div id="gallery" class="gallery"></div>
+  <script>
+    const data = [{id:1, name:"Wireless Mouse", price:25}, {id:2, name:"Mechanical Keyboard", price:85}, {id:3, name:"HD Monitor", price:150}];
+    data.forEach(p => {
+      document.getElementById("gallery").innerHTML += 
+        '<div class="card">' +
+          '<h3>' + p.name + '</h3><p style="font-size:1.2em; font-weight:bold;">$' + p.price + '</p>' +
+          '<button onclick="alert(\'Added ' + p.name + ' to cart!\')">Buy Now</button>' +
+        '</div>';
+    });
+  </script>
+</body></html>

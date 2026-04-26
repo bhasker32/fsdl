@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><style>
+  body{font-family:sans-serif;} ul {list-style:none; padding:0; width:250px;} 
+  li {padding:15px; border:1px solid #ccc; margin-bottom:8px; background:#f9f9f9; cursor:grab; border-radius:4px; font-weight:bold;}
+  li.dragging {opacity: 0.5; background:#e0e0e0;}
+</style></head>
+<body>
+  <h2>Reorder Items (Drag & Drop)</h2>
+  <ul id="list">
+    <li draggable="true">1. Learn HTML</li>
+    <li draggable="true">2. Learn CSS</li>
+    <li draggable="true">3. Learn JS</li>
+    <li draggable="true">4. Build Projects</li>
+  </ul>
+  <script>
+    let draggedItem;
+    document.querySelectorAll("li").forEach(item => {
+      item.addEventListener("dragstart", function(e) { draggedItem = this; this.classList.add("dragging"); });
+      item.addEventListener("dragend", function() { this.classList.remove("dragging"); });
+    });
+    const list = document.getElementById("list");
+    list.addEventListener("dragover", e => e.preventDefault());
+    list.addEventListener("drop", e => {
+      if (e.target.tagName === "LI" && e.target !== draggedItem) {
+        list.insertBefore(draggedItem, e.target.nextSibling);
+      }
+    });
+  </script>
+</body></html>
